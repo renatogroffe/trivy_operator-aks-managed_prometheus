@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contagem-deployment
+spec:
+  replicas: 1
+
+  minReadySeconds: 10
+
+  selector:
+    matchLabels:
+      app: contagem
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+
+  template:
+    metadata:
+      labels:
+        app: contagem
+
+    spec:
+      containers:
+        - name: contagem
+          image: renatogroffe/apicontagem:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: contagem-service
+spec:
+  type: ClusterIP
+  selector:
+    app: contagem
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

@@ -137,3 +137,13 @@ Produzindo como resultado:
 ```
 servicemonitor.azmonitoring.coreos.com/trivy-operator created
 ```
+
+## Dashboards para visualizar análises do Trivy Operator
+
+Utilizei nos testes o dashboard **Trivy Operator - Vulnerabilities**:
+
+https://grafana.com/grafana/dashboards/16337-trivy-operator-vulnerabilities/
+
+Que é parte integrante do projeto **grafana-dashboards-kubernetes**:
+
+https://github.com/dotdc/grafana-dashboards-kubernetes
