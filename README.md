@@ -3,7 +3,18 @@ Instruções para configuração do Trivy Operator no scanning de vulnerabilidad
 
 ## Instruções para uso do Trivy Operator no Azure
 
-O arquivo **trivy-values.yaml** contém algumas configurações para tornar possível a integração do Trivy Operator com o :
+Informações sobre o Trivy Operator:
+
+https://aquasecurity.github.io/trivy-operator/v0.30.1/
+
+Adicionando o chart Helm:
+
+```bash
+helm repo add aqua https://aquasecurity.github.io/helm-charts/
+helm repo update
+```
+
+O arquivo **trivy-values.yaml** contém algumas configurações para tornar possível a integração do Trivy Operator com o Prometheus do Azure:
 
 ```yaml
 serviceMonitor:
@@ -147,3 +158,11 @@ https://grafana.com/grafana/dashboards/16337-trivy-operator-vulnerabilities/
 Que é parte integrante do projeto **grafana-dashboards-kubernetes**:
 
 https://github.com/dotdc/grafana-dashboards-kubernetes
+
+Um exemplo com métricas exibidas por este dashboard:
+
+![Dashboard de vulnerabilidades apontadas pelo Trivy 1](img/trivy-01.png)
+
+![Dashboard de vulnerabilidades apontadas pelo Trivy 2](img/trivy-02.png)
+
+![Dashboard de vulnerabilidades apontadas pelo Trivy 3](img/trivy-03.png)
