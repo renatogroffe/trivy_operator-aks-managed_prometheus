@@ -1,0 +1,11 @@
+serviceMonitor:
+  # Desativa o deployment do serviceMonitor com configurações default
+  enabled: false
+trivy:
+  ignoreUnfixed: true
+service:
+  # Disabled garante que o Pod receba um Cluster IP
+  headless: false
+operator:
+  # Habilita a coleta de métricas (detalhamento de vulnerabilidades) do Trivy Operator
+  metricsVulnIdEnabled: true
